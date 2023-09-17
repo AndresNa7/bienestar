@@ -25,7 +25,6 @@ const Password = ({ labelText = 'Password' }) => {
         type={showPassword ? 'text' : 'password'}
         value={password}
         onChange={handlePasswordChange}
-        variant="outlined"
         fullWidth
         InputProps={{
           endAdornment: (
@@ -39,8 +38,28 @@ const Password = ({ labelText = 'Password' }) => {
               </IconButton>
             </InputAdornment>
           ),
+          style: {
+            borderBottom: '1px solid #000', // Añade una línea inferior
+          },
         }}
-        sx={{ width: '20%' }} // Cambia el tamaño de la caja del TextField aquí
+        sx={{
+          width: '100%', // Cambia el tamaño de la caja del TextField aquí
+          '& .MuiInputLabel-root': {
+            color: 'black', // Cambia el color de la etiqueta
+          },
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: 'blue',
+              border: 'none !important' // Cambia el color del borde cuando no está enfocado
+            },
+            '&:hover fieldset': {
+              borderColor: 'green',// Cambia el color del borde cuando se pasa el cursor sobre el TextField
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: 'red', // Cambia el color del borde cuando el TextField está enfocado
+            },
+          },
+        }}
       />
     </div>
   );

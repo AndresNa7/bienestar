@@ -5,12 +5,10 @@ import Desplegable from "../components/Desplegable";
 import Fecha from "../components/Fecha";
 import Input from "../components/Input";
 import Politicas from "../components/Politicas";
-import Password from "../components/Password";  
+import Password from "../components/Password";
 import miImagen from "./img/Logo.png";
 import "./Registro.css";
-
-
-
+import "./Desplegable.css";
 
 const Registro = () => {
   return (
@@ -25,13 +23,13 @@ const Registro = () => {
       <Input label="Nombres" />
       <Input label="Apellidos" />
       <Desplegable
+        label="Tipo de Documento"
         options={[
           { value: "Targeta de identidad", label: "Targeta de identidad" },
           { value: "cedula", label: "Cédula" },
           { value: "otro", label: "Otro" },
         ]}
       />
-      <Input label="Número de Documento" />
       <Fecha label="Fecha de Nacimiento" />
       <Input label="Correo Personal" />
       <Input label="Teléfono" />
@@ -39,20 +37,23 @@ const Registro = () => {
       <Password labelText="Contraseña" />
       <Password labelText="Confirmación Contreseña" />
       <Desplegable
+      label="Genero"
         options={[
           { value: "masculino", label: "Masculino" },
           { value: "femenino", label: "Femenino" },
           { value: "otro", label: "Otro" },
         ]}
       />
-      <Desplegable  placeholder= "EPS"
-        options= {[
+      <Desplegable
+        label="EPS"
+        options={[
           { value: "Cosalud", label: "Cosalud" },
           { value: "Salud total", label: "Salud total" },
           { value: "otro", label: "Otro" },
         ]}
       />
       <Desplegable
+      label="Rol"
         options={[
           { value: "aprendiz", label: "Aprendiz" },
           { value: "instructor", label: "Instructor" },
@@ -68,6 +69,7 @@ const Registro = () => {
         ]}
       />
       <Desplegable
+      label="Tipo de Sangre"
         options={[
           { value: "a+", label: "A+ " },
           { value: "o+", label: "O+" },
