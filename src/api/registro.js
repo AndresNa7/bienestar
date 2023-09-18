@@ -3,7 +3,7 @@
 // Función para hacer la solicitud POST
 export const registrarUsuario = async (datosUsuario) => {
   try {
-    const response = await fetch('', {
+    const response = await fetch('https://proyecto-backend-sgbienestar.onrender.com/registro', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
