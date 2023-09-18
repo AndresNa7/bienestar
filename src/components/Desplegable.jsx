@@ -1,24 +1,15 @@
 import React from 'react';
 
-const Desplegable = ({ label, options }) => {
+const Desplegable = ({ options }) => {
   return (
-    <div>
-      <label>
-        {}
-      </label>
-      <select className="desplegable-select">
-        <option disabled selected value="">
-          {label}
+    <select>
+      {options.map((option, index) => (
+        <option key={index} value={option.value}>
+          {option.label}
         </option>
-        {options.map((option, index) => (
-          <option key={index} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
+      ))}
+    </select>
   );
 };
 
 export default Desplegable;
-
