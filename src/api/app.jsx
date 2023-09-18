@@ -1,4 +1,5 @@
-
+const React = require('react');
+const { useState, useEffect } = require('react');
 
 const apiUrl = "https://proyecto-backend-sgbienestar.onrender.com/";
 
