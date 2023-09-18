@@ -58,19 +58,19 @@ import { obtenerEPS } from '../api/Eps';
         <input
           type="text"
           name="nombres"
-          placeholder="Nombres"
+          placeholder="Nombres*"
           value={formData.nombres}
           onChange={handleInputChange}
         />
         <input
           type="text"
           name="apellidos"
-          placeholder="Apellidos"
+          placeholder="Apellidos*"
           value={formData.apellidos}
           onChange={handleInputChange}
         />
       <Desplegable
-        label="Tipo de Documento"
+        label="Tipo de Documento*"
         options={[
           { value: "Targeta de identidad", label: "Targeta de identidad" },
           { value: "cedula", label: "Cédula" },
@@ -84,7 +84,7 @@ import { obtenerEPS } from '../api/Eps';
       <Password labelText="Contraseña" />
       <Password labelText="Confirmación Contreseña" />
       <Desplegable
-      label="Genero"
+      label="Genero*"
         options={[
           { value: "masculino", label: "Masculino" },
           { value: "femenino", label: "Femenino" },
@@ -94,7 +94,7 @@ import { obtenerEPS } from '../api/Eps';
    
 
       <Desplegable
-      label="Rol"
+      label="Rol*"
         options={[
           { value: "aprendiz", label: "Aprendiz" },
           { value: "instructor", label: "Instructor" },
@@ -119,7 +119,7 @@ import { obtenerEPS } from '../api/Eps';
       />
       <Input label="Dirección" />
       <Button label="Registrar" onClick={handleClick} />
-      <Politicas label="Politicas" />
+      <Politicas label="Politicas*" />
       </form>
     </div>
   );

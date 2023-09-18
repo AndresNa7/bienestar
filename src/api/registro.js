@@ -3,7 +3,7 @@
 // Función para hacer la solicitud POST
 export const registrarUsuario = async (datosUsuario) => {
   try {
-    const response = await fetch('URL_DEL_SERVIDOR', {
+    const response = await fetch('', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
