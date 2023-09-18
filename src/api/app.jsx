@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+const React = require('react');
+const { useState, useEffect } = require('react');
 
 const apiUrl = "https://proyecto-backend-sgbienestar.onrender.com/";
 
@@ -20,9 +21,11 @@ function Get({ endpoint, children }) {
   }, [endpoint]);
 
   return (
-    <React.Fragment>
-      {children(data)}
-    </React.Fragment>
+    React.createElement(
+      React.Fragment,
+      null,
+      children(data)
+    )
   );
 }
 
@@ -50,31 +53,47 @@ function Post({ endpoint, data, children }) {
   }, [endpoint, data]);
 
   return (
-    <React.Fragment>
-      {children(responseData)}
-    </React.Fragment>
+    React.createElement(
+      React.Fragment,
+      null,
+      children(responseData)
+    )
   );
 }
 
 // Uso de los componentes Get y Post
 function MyComponent() {
   return (
-    <div>
-      <h1>Obtener datos:</h1>
-      <Get endpoint="endpoint">
-        {(data) => (
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        )}
-      </Get>
+    React.createElement(
+      "div",
+      null,
+      React.createElement("h1", null, "Obtener datos:"),
+      React.createElement(
+        Get,
+        { endpoint: "endpoint" },
+        (data) => (
+          React.createElement(
+            "pre",
+            null,
+            JSON.stringify(data, null, 2)
+          )
+        )
+      ),
 
-      <h1>Enviar datos:</h1>
-      <Post endpoint="endpoint" data={{ /* datos a enviar */ }}>
-        {(responseData) => (
-          <pre>{JSON.stringify(responseData, null, 2)}</pre>
-        )}
-      </Post>
-    </div>
+      React.createElement("h1", null, "Enviar datos:"),
+      React.createElement(
+        Post,
+        { endpoint: "endpoint", data: { /* datos a enviar */ } },
+        (responseData) => (
+          React.createElement(
+            "pre",
+            null,
+            JSON.stringify(responseData, null, 2)
+          )
+        )
+      )
+    )
   );
 }
 
-export default MyComponent;
+module.exports = MyComponent;

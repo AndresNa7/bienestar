@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from 'react';
 import Autocomplete from "../components/Autocomplete";
 import Button from "../components/Button";
 import Desplegable from "../components/Desplegable";
@@ -9,19 +9,66 @@ import Password from "../components/Password";
 import miImagen from "./img/Logo.png";
 import "./Registro.css";
 import "./Desplegable.css";
+import "./password.css";
+import { registrarUsuario } from '../api/registro';
+import { obtenerFichas } from '../api/ficha'; 
+import { obtenerEPS } from '../api/Eps'; 
 
-const Registro = () => {
+
+  //REGISTRASE
+  const Registro = () => {
+    const handleClick = () => {
+      alert('¡Botón clickeado!');
+    };
+  
+    const [formData, setFormData] = useState({
+      nombres: '',
+      apellidos: '',
+      // Agrega otros campos del formulario aquí
+    });
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      try {
+        const responseData = await registrarUsuario(formData);
+        console.log('Respuesta del servidor:', responseData);
+      } catch (error) {
+        console.error('Error al registrar usuario:', error);
+      }
+    };
+  
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
+ 
+
   return (
     <div>
       <img src={miImagen} alt="Logo de bienestar" />
-      <h1>
-        REGISTRO
-        <h6>
-          <br></br>No tienes una cuenta? Registrate aquí
-        </h6>
-      </h1>
-      <Input label="Nombres" />
-      <Input label="Apellidos" />
+      <h1>REGISTRO</h1>
+      <h6>
+      <br />No tienes una cuenta? Regístrate aquí
+      </h6>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="nombres"
+          placeholder="Nombres"
+          value={formData.nombres}
+          onChange={handleInputChange}
+        />
+        <input
+          type="text"
+          name="apellidos"
+          placeholder="Apellidos"
+          value={formData.apellidos}
+          onChange={handleInputChange}
+        />
       <Desplegable
         label="Tipo de Documento"
         options={[
@@ -44,14 +91,8 @@ const Registro = () => {
           { value: "otro", label: "Otro" },
         ]}
       />
-      <Desplegable
-        label="EPS"
-        options={[
-          { value: "Cosalud", label: "Cosalud" },
-          { value: "Salud total", label: "Salud total" },
-          { value: "otro", label: "Otro" },
-        ]}
-      />
+   
+
       <Desplegable
       label="Rol"
         options={[
@@ -64,8 +105,8 @@ const Registro = () => {
         nombre="Ficha"
         array={[
           { label: 2712267, programa: "Programación de software" },
-          { label: 2812267, programa: "Programación de software" },
-          { label: 2912267, programa: "Programación de software" },
+          { label: 2812267, programa: "analicis " },
+          { label: 2912267, programa: "cocina" },
         ]}
       />
       <Desplegable
@@ -77,8 +118,9 @@ const Registro = () => {
         ]}
       />
       <Input label="Dirección" />
-      <Button label="Registrarse" />
+      <Button label="Registrar" onClick={handleClick} />
       <Politicas label="Politicas" />
+      </form>
     </div>
   );
 };
