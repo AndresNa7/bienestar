@@ -39,7 +39,7 @@ import { obtenerEPS } from '../api/Eps';
     };
   
     const handleInputChange = (event) => {
-      const { name, value } = event.target;
+      const { name, value } = event.target;git 
       setFormData({
         ...formData,
         [name]: value,
