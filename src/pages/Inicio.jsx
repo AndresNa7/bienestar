@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 export function Inicio(){
@@ -10,4 +11,13 @@ export function Inicio(){
         <button>Inicia Sesión</button>
       </div>
     )
+=======
+
+
+export function Inicio(){
+    return(
+    <div>
+        <h1>jhsgdajhsdgasjhdgad</h1>
+    </div>);
+>>>>>>> b52cbc45c6d4ec27a9dfb43c180574e73ebe4a2c
 }

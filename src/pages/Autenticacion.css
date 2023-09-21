@@ -1,0 +1,13 @@
+.father {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly !important;
+    margin: 50px auto;
+    background: #F6F6F6;
+    border-radius: 30px;
+    border:  1px;
+    width: 600PX;
+  
+  }
