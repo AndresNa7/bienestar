@@ -11,12 +11,16 @@ import "./Registro.css";
 import { registrarUsuario } from '../api/registro';
 import { obtenerFichas } from '../api/ficha'; 
 import { obtenerEPS } from '../api/Eps'; 
+import { obtenerdominio } from '../api/dominio';
+import { obtenerRol } from '../api/rol';
 
 
   //REGISTRASE
   const Registro = () => {
+
     const handleClick = () => {
       alert('¡Botón clickeado!');
+     
     };
   
     const [formData, setFormData] = useState({
@@ -29,8 +33,14 @@ import { obtenerEPS } from '../api/Eps';
       event.preventDefault();
   
       try {
-        const responseData = await registrarUsuario(formData);
-        console.log('Respuesta del servidor:', responseData);
+        const obtener = await obtenerdominio()
+        console.log(obtener)
+        const obtener2 = await obtenerRol()
+        console.log(obtener2)
+
+
+       const responseData = await registrarUsuario(formData);
+       console.log('Respuesta del servidor:', responseData);
       } catch (error) {
         console.error('Error al registrar usuario:', error);
       }

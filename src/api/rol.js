@@ -1,6 +1,5 @@
-// api.js (o un archivo separado para las llamadas API)
-export async function obtenerEPS() {
-    const url = 'https://proyecto-backend-sgbienestar.onrender.com/eps'; // Reemplaza con la URL correcta
+export async function obtenerRol() {
+    const url = 'https://proyecto-backend-sgbienestar.onrender.com/rol'; // Reemplaza con la URL correcta
   
     try {
       const response = await fetch(url);

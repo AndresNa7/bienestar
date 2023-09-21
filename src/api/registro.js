@@ -4,7 +4,7 @@
 export const registrarUsuario = async (datosUsuario) => {
     try {
       const response = await fetch('https://proyecto-backend-sgbienestar.onrender.com/registro', {
-        method: 'POST',
+        method: 'POST', mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
